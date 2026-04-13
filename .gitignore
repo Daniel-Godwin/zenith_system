@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Zenith OS Specific
+# We want to push the code, but not the folders it creates in your Downloads!
+# If you have test folders inside your project, list them here:
+/app/static/Images/
+/app/static/Documents/
+
+# OS
+.DS_Store
+Thumbs.db

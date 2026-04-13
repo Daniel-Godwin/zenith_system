@@ -1,0 +1,12 @@
+{
+    "Archives": ["zip", "rar", "7z", "tar", "gz", "compressed", "backup", "bundle", "archive", "winrar"],
+    "Python_Env": ["requirements", "pipfile", "setup", "pyproject", "venv", "site-packages", "wheel", "whl", "egg", "manifest", "env", "conda", "dependency"],
+    "Development": ["script", "code", "api", "database", "backend", "frontend", "deploy", "git", "repo", "stack", "server", "model", "training", "source", "python", "data-science", "notebook", "machine-learning"],
+    "Finance": ["invoice", "receipt", "tax", "billing", "salary", "statement", "budget", "payroll", "equity", "investment", "expense"],
+    "Work": ["project", "meeting", "presentation", "client", "report", "proposal", "contract", "agenda", "minutes", "feedback", "roadmap"],
+    "Education": ["course", "assignment", "lecture", "thesis", "study", "quiz", "exam", "homework", "syllabus", "transcript", "degree", "dataset", "challenge", "test", "correlation", "materials"],
+    "Media": ["movie", "song", "track", "video", "recording", "audio", "clip", "podcast", "vlog", "footage", "concert"],
+    "Health": ["medical", "fitness", "workout", "diet", "prescription", "hospital", "health", "therapy", "report", "clinic", "vaccine"],
+    "Personal": ["travel", "vacation", "photos", "identity", "passport", "visa", "insurance", "booking", "ticket"],
+    "Legal": ["affidavit", "agreement", "lawsuit", "court", "license", "permit", "regulation", "compliance", "notary", "will"]
+}

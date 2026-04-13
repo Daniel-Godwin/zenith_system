@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith OS | Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: #181818; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); text-align: center; width: 400px; border: 1px solid #282828; }
+        h1 { color: #00ff88; margin: 0; letter-spacing: 3px; font-size: 1.8rem; }
+        p { color: #666; font-size: 0.8rem; margin-bottom: 1.5rem; text-transform: uppercase; }
+        
+        button { background: #00ff88; color: #000; border: none; padding: 14px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s; width: 100%; font-size: 1rem; }
+        button:hover { background: #00cc6e; box-shadow: 0 0 15px rgba(0, 255, 136, 0.3); }
+        
+        #status { margin-top: 1.5rem; font-size: 0.9rem; color: #00ff88; font-weight: 500; }
+        
+        /* Scrollable History Section */
+        .history-container { margin-top: 20px; text-align: left; border-top: 1px solid #282828; padding-top: 15px; }
+        .history-header { color: #444; font-size: 0.7rem; font-weight: bold; margin-bottom: 10px; display: block; }
+        #history-list { font-size: 0.75rem; color: #aaa; list-style: none; padding: 0; max-height: 150px; overflow-y: auto; }
+        #history-list li { padding: 6px 0; border-bottom: 1px solid #222; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .arrow { color: #00ff88; margin: 0 5px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>ZENITH OS</h1>
+        <p>File Intelligence System</p>
+        
+        <button onclick="startCleanup()">START DEEP CLEAN</button>
+        
+        <div id="status">System Standby</div>
+        
+        <div class="history-container">
+            <span class="history-header">RECENT ACTIVITY</span>
+            <ul id="history-list">
+                <li style="color: #333;">No recent activity logged.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        async function startCleanup() {
+            const statusDiv = document.getElementById('status');
+            const historyList = document.getElementById('history-list');
+            
+            statusDiv.innerText = "Scanning & Organizing...";
+            statusDiv.style.color = "#ffaa00"; // Orange while working
+            
+            try {
+                const response = await fetch('/organize');
+                const data = await response.json();
+                
+                statusDiv.innerText = `Success: ${data.count} files moved.`;
+                statusDiv.style.color = "#00ff88"; // Back to green
+                
+                // Update History
+                historyList.innerHTML = "";
+                if (data.history.length > 0) {
+                    data.history.forEach(item => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `✔️ ${item.file} <span class="arrow">➜</span> <strong>${item.dest}</strong>`;
+                        historyList.appendChild(li);
+                    });
+                } else {
+                    historyList.innerHTML = "<li style='color: #444;'>Nothing to move. Folder is clean!</li>";
+                }
+            } catch (err) {
+                statusDiv.innerText = "Error: Engine Offline.";
+                statusDiv.style.color = "#ff4444";
+            }
+        }
+    </script>
+</body>
+</html>
