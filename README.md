@@ -25,5 +25,5 @@ Zenith OS is a localized, high-performance automation suite designed to manage d
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/zenith_system.git](https://github.com/YOUR_USERNAME/zenith_system.git)
+   git clone [https://github.com/YOUR_USERNAME/zenith_system.git](https://github.com/Daniel-Godwin/zenith_system.git)
    cd zenith_system
